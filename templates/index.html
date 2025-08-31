@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🍳 Murf spokncook</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+  <div class="container">
+    <h1>🍳 SpoknCook</h1>
+    <p>Enter the ingredients you have, and I'll find recipes for you!</p>
+
+    <!-- Ingredient Input -->
+    <input type="text" id="ingredientInput" placeholder="e.g. egg, tomato, curd" />
+    <button id="findRecipesBtn">Find Recipes</button>
+
+    <!-- Recipe List -->
+    <ul id="recipeList"></ul>
+
+    <!-- Recipe Display -->
+    <div id="recipeBox" class="recipe-box" style="display:none;">
+      <h2 id="recipeTitle"></h2>
+      <ol id="recipeSteps"></ol>
+
+      <!-- Voice Selection + TTS -->
+      <div class="audio-player" id="audioSection">
+        <label for="voiceSelect">Choose Voice:</label>
+        <select id="voiceSelect">
+          <option value="">Loading voices...</option>
+        </select>
+
+        <button id="speakBtn">🔊 Read Recipe</button>
+        <audio controls id="audioPlayer"></audio>
+        <a id="downloadLink" download="recipe.mp3">⬇️ Download Audio</a>
+      </div>
+    </div>
+
+    <!-- Logs -->
+    <div class="logs" id="logBox">Ready...</div>
+  </div>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
